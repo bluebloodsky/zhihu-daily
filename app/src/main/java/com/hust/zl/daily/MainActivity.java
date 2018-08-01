@@ -39,7 +39,7 @@ public class MainActivity extends Activity {
     }
 
     private void requestStories() {
-        String storyUrl = "http://news-at.zhihu.com/api/4/news/latest";
+        String storyUrl = "https://news-at.zhihu.com/api/4/news/latest";
         HttpUtil.sendOkHttpRequest(storyUrl, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -75,14 +75,16 @@ public class MainActivity extends Activity {
             ImageView stroyImg = (ImageView) view.findViewById(R.id.story_img);
             storyTitle.setText(topStory.title);
             Glide.with(MainActivity.this).load(topStory.image).into(stroyImg);
+            topStoryLayout.addView(view);
         }
         for (Story story : latestNews.storyList) {
-            View view = LayoutInflater.from(this).inflate(R.layout.story_item, topStoryLayout, false);
+            View view = LayoutInflater.from(this).inflate(R.layout.story_item, storyLayout, false);
             TextView storyTitle = (TextView) view.findViewById(R.id.story_title);
             ImageView stroyImg = (ImageView) view.findViewById(R.id.story_img);
             storyTitle.setText(story.title);
             Glide.with(MainActivity.this).load(story.images.get(0)).into(stroyImg);
-
+            storyLayout.addView(view);
         }
+        storyLayout.setVisibility(View.VISIBLE);
     }
 }
