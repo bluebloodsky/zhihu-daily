@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".MainActivity">
+
+    <include layout="@layout/title" />
+
+    <FrameLayout
+        android:id="@+id/top_story_layout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"></FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/story_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="今日热闻"
+            android:textColor="#3c3c3c"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>
