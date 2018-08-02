@@ -1,5 +1,6 @@
 package com.hust.zl.daily;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
@@ -47,10 +48,11 @@ public class TopStoryPagerAdapter extends PagerAdapter {
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(container.getContext(),ArticleActivity.class);
+            public void onClick(View v) {
+                Context context = v.getContext();
+                Intent intent = new Intent(context,ArticleActivity.class);
                 intent.putExtra("story_id" , story.storyId);
-                container.getContext().startActivity(intent);
+                context.startActivity(intent);
             }
         });
         return view;
