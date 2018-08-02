@@ -9,41 +9,61 @@
 
     <include layout="@layout/title" />
 
-
-    <ScrollView
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:overScrollMode="never"
-        android:scrollbars="none">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fitsSystemWindows="true"
-            android:orientation="vertical">
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/top_story_recycle_view"
-                android:layout_width="match_parent"
-                android:layout_height="200dp">
-            </android.support.v7.widget.RecyclerView>
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:scrollbars="none">
 
             <LinearLayout
-                android:id="@+id/story_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="5dp">
+                android:fitsSystemWindows="true"
+                android:orientation="vertical">
 
-                <TextView
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="5dp"
-                    android:gravity="center_vertical"
-                    android:text="今日热闻"
-                    android:textColor="#3c3c3c"
-                    android:textSize="14sp" />
+                    android:layout_height="300dp">
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/top_story_view_pager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_point"
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/story_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center_vertical"
+                        android:text="今日热闻"
+                        android:textColor="#3c3c3c"
+                        android:textSize="14sp" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+        </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>
