@@ -22,10 +22,11 @@
             android:fitsSystemWindows="true"
             android:orientation="vertical">
 
-            <FrameLayout
-                android:id="@+id/top_story_layout"
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/top_story_recycle_view"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"></FrameLayout>
+                android:layout_height="200dp">
+            </android.support.v7.widget.RecyclerView>
 
             <LinearLayout
                 android:id="@+id/story_layout"

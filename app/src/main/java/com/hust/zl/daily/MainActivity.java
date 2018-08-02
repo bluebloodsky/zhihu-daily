@@ -2,6 +2,8 @@ package com.hust.zl.daily;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -25,14 +27,19 @@ import okhttp3.Response;
 
 public class MainActivity extends Activity {
 
-    private FrameLayout topStoryLayout;
+    private RecyclerView topStoryRecyclerView;
     private LinearLayout storyLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        topStoryLayout = (FrameLayout) findViewById(R.id.top_story_layout);
+        topStoryRecyclerView = (RecyclerView) findViewById(R.id.top_story_recycle_view);
+
+        LinearLayoutManager topStroyLayoutManager = new LinearLayoutManager(this);
+        topStroyLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        topStoryRecyclerView.setLayoutManager(topStroyLayoutManager);
+
         storyLayout = (LinearLayout) findViewById(R.id.story_layout);
         storyLayout.setVisibility(View.INVISIBLE);
         requestStories();
@@ -69,14 +76,8 @@ public class MainActivity extends Activity {
     }
 
     private void showStories(LatestNews latestNews) {
-        for (TopStory topStory : latestNews.topStoryList) {
-            View view = LayoutInflater.from(this).inflate(R.layout.top_story_item, topStoryLayout, false);
-            TextView storyTitle = (TextView) view.findViewById(R.id.story_title);
-            ImageView stroyImg = (ImageView) view.findViewById(R.id.story_img);
-            storyTitle.setText(topStory.title);
-            Glide.with(MainActivity.this).load(topStory.image).into(stroyImg);
-            topStoryLayout.addView(view);
-        }
+        TopStoryAdapter topStoryAdapter = new TopStoryAdapter(latestNews.topStoryList) ;
+        topStoryRecyclerView.setAdapter(topStoryAdapter);
         for (Story story : latestNews.storyList) {
             View view = LayoutInflater.from(this).inflate(R.layout.story_item, storyLayout, false);
             TextView storyTitle = (TextView) view.findViewById(R.id.story_title);
