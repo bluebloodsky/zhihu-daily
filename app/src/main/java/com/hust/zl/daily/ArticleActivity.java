@@ -2,8 +2,10 @@ package com.hust.zl.daily;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
@@ -24,6 +26,7 @@ import okhttp3.Response;
 
 public class ArticleActivity extends Activity {
 
+    public static final String TAG = ArticleActivity.class.getName();
     WebView webView;
 
     Button backButton;

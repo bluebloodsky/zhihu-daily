@@ -1,12 +1,12 @@
-package com.hust.zl.daily;
+package com.hust.zl.daily.other;
+
 import android.content.Context;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 
-public class RefreshLayout extends SwipeRefreshLayout {
-
+public class RefreshLayout extends SwipeRefreshLayout{
     private float startY;
     private float startX;
     // 记录viewPager是否拖拽的标记
@@ -55,4 +55,5 @@ public class RefreshLayout extends SwipeRefreshLayout {
         // 如果是Y轴位移大于X轴，事件交给swipeRefreshLayout处理。
         return super.onInterceptTouchEvent(ev);
     }
+
 }

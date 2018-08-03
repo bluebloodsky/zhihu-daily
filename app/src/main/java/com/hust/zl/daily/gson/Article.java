@@ -24,4 +24,14 @@ public class Article {
     public String googleAnalyticsPrefix;
 
     public List<String> css;
+
+    public Section section;
+
+    public class Section {
+        public String thumbnail;
+        @SerializedName("id")
+        public String sectionId;
+        @SerializedName("name")
+        public String sectionName;
+    }
 }

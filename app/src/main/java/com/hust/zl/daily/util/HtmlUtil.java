@@ -3,12 +3,14 @@ package com.hust.zl.daily.util;
 import java.util.List;
 
 public class HtmlUtil {
-    //  css样式，隐藏header
-    private static final String HIDE_HEADER_STYLE = "<style>div.headline{display:none;}</style>";
+
+    private static final String HIDE_HEADLINE = "<style>div.headline{display:none;}</style>";
     //   css style tag, 需要格式化
     private static final String NEEDED_FORMAT_CSS_TAG = "<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\"/>";
     //   js script tag, 需要格式化
     private static final String NEEDED_FORMAT_JS_TAG = "<script src=\"%s\"></script>";
+
+    private static final String NEEDED_FORMAT_HTML = "<html><head>%s</head><body>%s</body></html>";
     public static final String MIME_TYPE = "text/html; charset=utf-8";
     public static final String ENCODING = "utf-8";
 
@@ -76,6 +78,6 @@ public class HtmlUtil {
     public static String createHtmlData(String html, List<String> cssList, List<String> jsList) {
         final String css = HtmlUtil.createCssTag(cssList);
         final String js = HtmlUtil.createJsTag(jsList);
-        return css.concat(HIDE_HEADER_STYLE).concat(html).concat(js);
+        return String.format(NEEDED_FORMAT_HTML, css.concat(HIDE_HEADLINE).concat(js), html);
     }
 }

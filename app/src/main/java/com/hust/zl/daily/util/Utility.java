@@ -2,15 +2,12 @@ package com.hust.zl.daily.util;
 
 import com.google.gson.Gson;
 import com.hust.zl.daily.gson.Article;
-import com.hust.zl.daily.gson.LatestNews;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.hust.zl.daily.gson.StoryNews;
 
 public class Utility {
-    public static LatestNews handleLatestNews(String response) {
+    public static StoryNews handleLatestNews(String response) {
         try {
-            return new Gson().fromJson(response, LatestNews.class);
+            return new Gson().fromJson(response, StoryNews.class);
         } catch (Exception e) {
             e.printStackTrace();
         }

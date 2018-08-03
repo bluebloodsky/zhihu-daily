@@ -6,7 +6,7 @@
     android:padding="5dp">
 
     <TextView
-        android:id="@+id/story_name"
+        android:id="@+id/tv_date"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginLeft="5dp"
@@ -14,13 +14,4 @@
         android:text="今日热闻"
         android:textColor="#3c3c3c"
         android:textSize="14sp" />
-
-    <LinearLayout
-        android:id="@+id/story_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-    </LinearLayout>
-
 </LinearLayout>
