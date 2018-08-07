@@ -19,6 +19,16 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:background="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/section_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/back_button"
+            android:textColor="#fff"
+            android:textSize="20sp" />
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
